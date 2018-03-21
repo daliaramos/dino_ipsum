@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head> <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <head>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <title>Dino Ipsum</title>
   </head>
   <body>
     <div class="jumbotron text-center">
       <h3>Dino Ipsum</h3>
+    </div>
+
+    <div class="container">
+      <div class="well">
+
+        <form class="dino-form">
+          <div class="form-group">
+            <label for="words">Number Of Words</label>
+            <input type="text" name="words" id="words">
+            <br>
+            <br>
+            <label for="paragraphs">Number Of Paragraphs</label>
+            <input type="text" name="paragraphs" id="paragraphs">
+            <br>
+            <br>
+            <button id="dinobtn" type="button" class="btn btn-info">Enter</button>
+          </div>
+        </form>
+
+        <div class="results">
+        </div>
+
+        <div id="errors">
+        </div>
+
+      </div>
     </div>
   </body>
 </html>
