@@ -3,24 +3,35 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 
-$(document).ready(function(){
-  // $(".dino-form").submit(function(event){
-  //   event.preventDefault();
+//API CALL THAT POPULATES PAGE, WORKING
+// $(document).ready(function(){
+//
+//     var getDinos = $.get(`http://dinoipsum.herokuapp.com/api/?format=html`),
+//       fillContainer = function(html) {
+//         $('.results').html(html);
+//       },
+//       error = function() {
+//           console.log('No dinosaurs');
+//         };
+//
+//     getDinos.then(fillContainer, error);
+//
+// })
 
-    // const word = $("input#words").val("");
-    // const paragraph = $("input#paragraphs").val("");
+$(document).ready(function() {
+  $("form.dinoIpsum").submit(function(event) {
+    event.preventDefault();
 
-    var getDinos = $.get(`http://dinoipsum.herokuapp.com/api/?format=html`),
-      fillContainer = function(html) {
-        $('.results').html(html);
-        console.log("html: "+ html);
-      },
-      error = function() {
-          console.log('No dinosaurs');
-        };
+    var paragraphs = $("input#numParagraphs").val();
+    var numbers = $("input#numWords").val();
 
-    getDinos.then(fillContainer, error);
+      var getDinos = $.get('http://dinoipsum.herokuapp.com/api/?format=html&paragraphs=' + paragraphs + '&words=' + numbers).then(function(response) {
+      $(".results").html(response);
+      console.log(response);
+      getDinos.then(response);
+    });
 
-    // $('.results').text(paragraph);
-  // })
-})
+    // $("form.dinoIpsum")[0].reset();
+
+  });
+});
